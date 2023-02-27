@@ -1,0 +1,9 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: non-falsifiable-provenance
+  namespace: default
+spec:
+  taskRef:
+    name: non-falsifiable
+

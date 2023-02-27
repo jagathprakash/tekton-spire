@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: non-falsifiable
+  namespace: default
+spec:
+  results:
+  - name: foo
+  - name: bar
+  steps:
+  - image: ubuntu
+    script: |
+      #!/usr/bin/env bash
+      sleep 20
+      printf "hello" > "$(results.foo.path)"
+      printf "world" > "$(results.bar.path)"
+
